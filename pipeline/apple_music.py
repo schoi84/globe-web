@@ -31,8 +31,8 @@ def parse_feed(body: dict) -> list[dict]:
     entries = []
     for i, song in enumerate(body.get("feed", {}).get("results", [])[:10], start=1):
         entry = {"rank": i, "name": song.get("name", "").strip(), "detail": song.get("artistName", "").strip()}
-        # Artwork only for #1, which is the only row that shows an image.
-        if i == 1 and song.get("artworkUrl100"):
+        # Every row can expand to show its artwork; #1 also uses it as the hero.
+        if song.get("artworkUrl100"):
             entry["image"] = song["artworkUrl100"].replace("100x100bb", "600x600bb")
         entries.append(entry)
     return entries

@@ -39,7 +39,7 @@ RANGES = [
 BATCH = 4  # plus the anchor = Trends' 5-term limit
 MIN_ITEMS = 3
 PAUSE = 8  # seconds between live requests
-# Optional #1 images per topic (see topic_images.py): {category: {name: {image, credit}}}.
+# Optional images per topic (see topic_images.py): {category: {name: {image, credit}}}.
 IMAGES_FILE = Path(__file__).with_name("topic_images.json")
 IMAGES = json.loads(IMAGES_FILE.read_text(encoding="utf-8")) if IMAGES_FILE.exists() else {}
 
@@ -91,10 +91,11 @@ def rank(topics: list[dict], batches: list[dict[str, dict[str, int]]]) -> dict[s
 
 
 def add_images(category: str, by_country: dict[str, list[dict]]) -> None:
+    pics = IMAGES.get(category, {})
     for entries in by_country.values():
-        pic = IMAGES.get(category, {}).get(entries[0]["name"])
-        if pic:
-            entries[0].update(pic)
+        for e in entries:
+            if e["name"] in pics:
+                e.update(pics[e["name"]])
 
 
 def run_category(trends: TrendReq, category: str, range_ids: list[str]) -> None:

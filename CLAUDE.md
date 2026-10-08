@@ -14,7 +14,12 @@ Portfolio project. An interactive 3D globe showing what's #1 in each country acr
 - Apple's feed answers **500** (not 404) for countries without a storefront and is flaky for real ones. `apple_music.py` does a fast first pass, then retries only the failures once (~7 min total).
 - Multi-period views (Netflix month/year, Music week/month/year) merge snapshots with `common.aggregate`: 11 - rank points per appearance.
 - **Music history:** each daily run saves `data/history/music/<date>.json` (committed). Week/Month/Year only appear once there are more days than the range before them; the note says "N days so far" until the window is full. `apple_music.py --rebuild` regenerates music.json from history without fetching.
-- **Hero images** (#1 only): Music uses Apple album art (600px). Food uses Wikimedia Commons photos from `pipeline/topic_images.py` → `topic_images.json`, Commons only (free licenses), each with a `credit` line the UI must show. Movies, TV and Games have no image source yet (posters and cover art are copyrighted).
+- **Images** (any row; #1 shows as a hero card, other rows expand on click):
+  - Music: Apple album art (600px), every song.
+  - Food: Wikimedia Commons photos via `pipeline/topic_images.py` → `topic_images.json`, Commons only (free licenses), each with a `credit` line the UI must show.
+  - Movies, TV, Games: official trailer thumbnails via `pipeline/youtube.py` (YouTube Data API). Chosen over TMDB/IGDB because the YouTube API terms allow ad-supported sites, provided each thumbnail links to its video on YouTube and is shown unaltered (no blur, no text overlaid; the #1 title sits below the thumbnail). Entries get `video` (ID) + `credit`; the file gets `imageSource` (legend shows "Trailers: YouTube").
+  - Each search costs 100 of 10,000 daily quota units, so a run does at most 90 new lookups, most visible titles first. Results (including "none found") are cached in `pipeline/youtube_videos.json` (committed). The workflow runs it every day, after the other steps.
+  - Key: `YOUTUBE_API_KEY` in `pipeline/.env` locally (template `.env.example`), repository secret in Actions. Without it, cached trailers are still attached and nothing is searched.
 - The frontend shares one range choice across categories and falls back to the nearest range a category has (`pickRange` in `App.tsx`).
 - **Trends method:** topics (not search strings) so it works across languages. Batches of [anchor + 4], scores divided by the anchor (Pizza, Minecraft) per country to share one scale. Countries need ≥3 topics with interest. Topic IDs live in `pipeline/trends_topics.json`; edit `CANDIDATES` in `resolve_topics.py` and re-run it, then **check the matches** (exact-title matching avoids look-alikes like KFC for "Fried chicken").
 - Trends rate-limits hard (429). `trends_common.with_backoff` waits 60s, 120s, ... and raw batches are cached per day in `pipeline/.cache/trends/`, so a re-run resumes. `--ranges day,week` refreshes only those ranges and keeps the rest of the existing file.
@@ -34,7 +39,7 @@ Every category is one file, `public/data/<category>.json`. The frontend only rea
 }
 ```
 
-`detail` is the secondary line (artist, season, weeks in Top 10). `image` and `credit` are only set on #1 entries; with an image, the panel shows #1 as a hero card.
+`detail` is the secondary line (artist, season, weeks in Top 10). `image` and `credit` can be set on any entry. With an image, #1 is shown as a hero card and other rows expand on click to show theirs.
 
 ## Frontend
 

@@ -23,6 +23,9 @@ export type Entry = {
   image?: string
   // Attribution the image's license requires, e.g. "Photo: X, CC BY-SA 4.0, via Wikimedia Commons".
   credit?: string
+  // YouTube video ID of the official trailer (Movies, TV, Games). Shown as its
+  // thumbnail, always linking to the video on YouTube.
+  video?: string
 }
 
 export type RangeInfo = { id: string; label: string; note?: string }
@@ -30,6 +33,8 @@ export type RangeInfo = { id: string; label: string; note?: string }
 export type CategoryData = {
   generatedAt: string
   source: { name: string; url: string }
+  // Site-level credit for the images, e.g. { label: 'Trailers', name: 'YouTube' }.
+  imageSource?: { name: string; url: string; label: string }
   ranges: RangeInfo[]
   data: Record<string, Record<string, Entry[]>>
 }

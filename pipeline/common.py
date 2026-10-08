@@ -15,6 +15,7 @@ The frontend only reads these files.
 from __future__ import annotations
 
 import json
+import os
 import time
 import urllib.error
 import urllib.request
@@ -31,9 +32,29 @@ class NotFound(Exception):
     pass
 
 
-def http_get(url: str, retries: int = 4, timeout: int = 60) -> bytes:
-    """GET with retries on rate limits, server errors and network hiccups."""
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+def env(name: str) -> str | None:
+    """A setting from the environment (GitHub Actions secrets) or pipeline/.env (local, gitignored)."""
+    if name in os.environ:
+        return os.environ[name] or None
+    path = Path(__file__).with_name(".env")
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            key, sep, value = line.partition("=")
+            if sep and key.strip() == name and not key.strip().startswith("#"):
+                return value.strip().strip("\"'") or None
+    return None
+
+
+def http_get(
+    url: str,
+    retries: int = 4,
+    timeout: int = 60,
+    headers: dict | None = None,
+    data: bytes | None = None,
+) -> bytes:
+    """GET (or POST, when data is given) with retries on rate limits, server errors
+    and network hiccups."""
+    req = urllib.request.Request(url, data=data, headers={"User-Agent": USER_AGENT, **(headers or {})})
     for attempt in range(retries):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as res:
@@ -54,7 +75,7 @@ def aggregate(snapshots: list[dict[str, list[dict]]], top: int = 10) -> dict[str
     """Merge several per-country Top 10 snapshots (newest first) into one ranking.
 
     Each appearance earns 11 - rank points; ties break by name. Entries are
-    identified by (name, detail), and the newest snapshot's image is kept.
+    identified by (name, detail), and each entry keeps its newest image.
     """
     points: dict[str, dict[tuple, int]] = {}
     images: dict[tuple, str] = {}
@@ -75,7 +96,7 @@ def aggregate(snapshots: list[dict[str, list[dict]]], top: int = 10) -> dict[str
                 "rank": i,
                 "name": name,
                 **({"detail": detail} if detail else {}),
-                **({"image": images[(name, detail)]} if i == 1 and (name, detail) in images else {}),
+                **({"image": images[(name, detail)]} if (name, detail) in images else {}),
             }
             for i, ((name, detail), _) in enumerate(ranked, start=1)
         ]

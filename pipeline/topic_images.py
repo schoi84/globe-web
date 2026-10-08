@@ -1,12 +1,14 @@
-"""Find a free-licensed photo for each Trends topic and save topic_images.json.
+"""Find an image for each Trends topic and save topic_images.json.
 
-Uses the Wikipedia article's lead image, but only when it lives on Wikimedia
+Food: the Wikipedia article's lead image, but only when it lives on Wikimedia
 Commons (free licenses). Images uploaded to English Wikipedia itself are often
 non-free (posters, cover art, logos) and are skipped. Each image keeps an
 attribution line, which the site shows under the picture.
 
-Only categories listed in WIKI_CATEGORIES are processed. Games are left out on
-purpose: their Wikipedia images are almost always non-free cover art.
+Games get trailer thumbnails from youtube.py instead: their Wikipedia images are
+almost always non-free cover art.
+
+Already-found images are kept; delete an entry from topic_images.json to redo it.
 
 Usage: python pipeline/topic_images.py
 """

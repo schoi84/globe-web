@@ -15,7 +15,8 @@ class AggregateTest(unittest.TestCase):
         # B: 10 + 10 + 9 = 29, A: 9 + 10 = 19, C: 9
         self.assertEqual([e["name"] for e in out["KR"]], ["B", "A", "C"])
         self.assertEqual(out["KR"][0]["image"], "b.jpg")
-        self.assertNotIn("image", out["KR"][1])
+        self.assertEqual(out["KR"][1]["image"], "old.jpg")  # every entry keeps its image
+        self.assertNotIn("image", out["KR"][2])
 
     def test_same_name_different_detail_kept_apart(self):
         snap = {"US": [{"rank": 1, "name": "Show", "detail": "Season 1"}, {"rank": 2, "name": "Show", "detail": "Season 2"}]}

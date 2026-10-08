@@ -220,8 +220,16 @@ export default function App() {
 
       {current && !sheetOpen && (
         <>
-          <Legend items={legend} noun={noun.one} source={current.source} className="hidden sm:flex" />
-          {!isWide && <LegendChip items={legend} noun={noun.one} source={current.source} />}
+          <Legend
+            items={legend}
+            noun={noun.one}
+            source={current.source}
+            imageSource={current.imageSource}
+            className="hidden sm:flex"
+          />
+          {!isWide && (
+            <LegendChip items={legend} noun={noun.one} source={current.source} imageSource={current.imageSource} />
+          )}
         </>
       )}
 
@@ -259,7 +267,7 @@ function GlobePlaceholder() {
   )
 }
 
-type LegendProps = { items: TopItem[]; noun: string; source: CategoryData['source'] }
+type LegendProps = { items: TopItem[]; noun: string } & Pick<CategoryData, 'source' | 'imageSource'>
 
 function legendRows(items: TopItem[]) {
   const shown = items.slice(0, SERIES.length)
@@ -280,33 +288,38 @@ function LegendList({ items }: { items: TopItem[] }) {
   )
 }
 
-function SourceLink({ source }: { source: CategoryData['source'] }) {
+function SourceLink({ source, imageSource }: Pick<CategoryData, 'source' | 'imageSource'>) {
+  const link = 'pointer-events-auto text-muted-foreground underline-offset-2 hover:underline'
   return (
-    <a
-      href={source.url}
-      target="_blank"
-      rel="noreferrer"
-      className="pointer-events-auto text-muted-foreground underline-offset-2 hover:underline"
-    >
-      Data: {source.name}
-    </a>
+    <span className="flex flex-col gap-1">
+      <a href={source.url} target="_blank" rel="noreferrer" className={link}>
+        Data: {source.name}
+      </a>
+      {imageSource && (
+        <>
+          <a href={imageSource.url} target="_blank" rel="noreferrer" className={link}>
+            {imageSource.label}: {imageSource.name}
+          </a>
+        </>
+      )}
+    </span>
   )
 }
 
-function Legend({ items, noun, source, className }: LegendProps & { className?: string }) {
+function Legend({ items, noun, source, imageSource, className }: LegendProps & { className?: string }) {
   return (
     <div className={`pointer-events-none absolute bottom-6 left-6 max-w-72 flex-col gap-2 text-xs ${className ?? ''}`}>
       <span className="text-muted-foreground">#1 {noun} by country</span>
       <LegendList items={items} />
       <span className="mt-1">
-        <SourceLink source={source} />
+        <SourceLink source={source} imageSource={imageSource} />
       </span>
     </div>
   )
 }
 
 // Phones: a compact chip showing the three map colors; tap to expand the full key.
-function LegendChip({ items, noun, source }: LegendProps) {
+function LegendChip({ items, noun, source, imageSource }: LegendProps) {
   const [open, setOpen] = useState(false)
   const { shown } = legendRows(items)
   return (
@@ -318,7 +331,7 @@ function LegendChip({ items, noun, source }: LegendProps) {
         >
           <LegendList items={items} />
           <div className="mt-2.5 border-t border-border/60 pt-2">
-            <SourceLink source={source} />
+            <SourceLink source={source} imageSource={imageSource} />
           </div>
         </div>
       )}
