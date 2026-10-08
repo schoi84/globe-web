@@ -9,7 +9,9 @@ common scale), and kept only if at least MIN_ITEMS topics have any interest.
 Topics come from trends_topics.json (see resolve_topics.py). Raw batch results are
 cached per day in .cache/trends/ so a run cut short by rate limits can resume.
 
-Usage: python pipeline/trends.py [foods] [games]
+Usage: python pipeline/trends.py [--ranges day,week] [foods] [games]
+  --ranges refreshes only those ranges and keeps the rest from the existing file
+  (the scheduled job does day/week daily and month/year weekly).
 """
 
 from __future__ import annotations
@@ -23,18 +25,23 @@ from pathlib import Path
 
 from pytrends.request import TrendReq
 
-from common import CACHE_DIR, write_category
+from common import CACHE_DIR, OUT_DIR, write_category
 from trends_common import with_backoff
 
 TOPICS = json.loads(Path(__file__).with_name("trends_topics.json").read_text(encoding="utf-8"))
 SOURCE = {"name": "Google Trends", "url": "https://trends.google.com"}
 RANGES = [
+    {"id": "day", "label": "Day", "note": "Past 24 hours", "timeframe": "now 1-d"},
+    {"id": "week", "label": "Week", "note": "Past 7 days", "timeframe": "now 7-d"},
     {"id": "month", "label": "Month", "note": "Past 30 days", "timeframe": "today 1-m"},
     {"id": "year", "label": "Year", "note": "Past 12 months", "timeframe": "today 12-m"},
 ]
 BATCH = 4  # plus the anchor = Trends' 5-term limit
 MIN_ITEMS = 3
 PAUSE = 8  # seconds between live requests
+# Optional #1 images per topic (see topic_images.py): {category: {name: {image, credit}}}.
+IMAGES_FILE = Path(__file__).with_name("topic_images.json")
+IMAGES = json.loads(IMAGES_FILE.read_text(encoding="utf-8")) if IMAGES_FILE.exists() else {}
 
 
 def fetch_batch(trends: TrendReq, mids: list[str], timeframe: str, cache: Path) -> dict[str, dict[str, int]]:
@@ -83,26 +90,41 @@ def rank(topics: list[dict], batches: list[dict[str, dict[str, int]]]) -> dict[s
     return dict(sorted(out.items()))
 
 
-def run_category(trends: TrendReq, category: str) -> None:
+def add_images(category: str, by_country: dict[str, list[dict]]) -> None:
+    for entries in by_country.values():
+        pic = IMAGES.get(category, {}).get(entries[0]["name"])
+        if pic:
+            entries[0].update(pic)
+
+
+def run_category(trends: TrendReq, category: str, range_ids: list[str]) -> None:
     topics = TOPICS[category]
     anchor, others = topics[0]["mid"], [t["mid"] for t in topics[1:]]
     chunks = [others[i : i + BATCH] for i in range(0, len(others), BATCH)]
     day_cache = CACHE_DIR / "trends" / date.today().isoformat()
 
-    data = {}
-    for r in RANGES:
+    # Refresh only the requested ranges; keep the others from the existing file.
+    existing = OUT_DIR / f"{category}.json"
+    data = json.loads(existing.read_text(encoding="utf-8"))["data"] if existing.exists() else {}
+    for r in (r for r in RANGES if r["id"] in range_ids):
         batches = []
         for i, chunk in enumerate(chunks):
             print(f"{category} {r['id']}: batch {i + 1}/{len(chunks)}")
             cache = day_cache / f"{category}-{r['id']}-{i}.json"
             batches.append(fetch_batch(trends, [anchor, *chunk], r["timeframe"], cache))
         data[r["id"]] = rank(topics, batches)
+        add_images(category, data[r["id"]])
 
-    ranges = [{k: v for k, v in r.items() if k != "timeframe"} for r in RANGES]
-    write_category(category, SOURCE, ranges, data)
+    ranges = [{k: v for k, v in r.items() if k != "timeframe"} for r in RANGES if r["id"] in data]
+    write_category(category, SOURCE, ranges, {r["id"]: data[r["id"]] for r in ranges})
 
 
 def main(argv: list[str]) -> int:
+    range_ids = [r["id"] for r in RANGES]
+    if "--ranges" in argv:
+        i = argv.index("--ranges")
+        range_ids = argv[i + 1].split(",")
+        argv = argv[:i] + argv[i + 2 :]
     categories = argv or list(TOPICS)
     unknown = [c for c in categories if c not in TOPICS]
     if unknown:
@@ -110,7 +132,7 @@ def main(argv: list[str]) -> int:
         return 2
     trends = TrendReq(hl="en-US", tz=0, timeout=(10, 30))
     for category in categories:
-        run_category(trends, category)
+        run_category(trends, category, range_ids)
     return 0
 
 

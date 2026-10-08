@@ -19,8 +19,10 @@ export type Entry = {
   name: string
   // Secondary line: artist, season, weeks in Top 10.
   detail?: string
-  // Artwork, only present (and shown) for #1.
+  // Hero image, only present (and shown) for #1.
   image?: string
+  // Attribution the image's license requires, e.g. "Photo: X, CC BY-SA 4.0, via Wikimedia Commons".
+  credit?: string
 }
 
 export type RangeInfo = { id: string; label: string; note?: string }

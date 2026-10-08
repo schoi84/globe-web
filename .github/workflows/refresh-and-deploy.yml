@@ -1,6 +1,7 @@
 # Refreshes the chart data on a schedule, commits it, and deploys the site to GitHub Pages.
-#   Daily:        Apple Music (its charts change every day)
-#   Wednesdays:   Netflix Top 10 (published on Tuesdays) and Google Trends
+#   Daily:        Apple Music (saved to data/history/music for week/month/year)
+#                 and Google Trends day + week
+#   Wednesdays:   Netflix Top 10 (published on Tuesdays) and Google Trends month + year
 #   On push:      just rebuild and deploy
 #   Manual run:   refresh everything, then deploy
 name: Refresh data and deploy
@@ -42,17 +43,22 @@ jobs:
         if: env.WEEKLY == 'true'
         run: python pipeline/netflix.py
 
-      # Google often rate-limits cloud IPs. A failure keeps last week's files.
-      - name: Google Trends
+      # Google often rate-limits cloud IPs. A failure keeps the previous data.
+      - name: Google Trends (day, week)
+        if: env.DAILY == 'true'
+        continue-on-error: true
+        run: python pipeline/trends.py --ranges day,week
+
+      - name: Google Trends (month, year)
         if: env.WEEKLY == 'true'
         continue-on-error: true
-        run: python pipeline/trends.py
+        run: python pipeline/trends.py --ranges month,year
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data
+          git add public/data data/history
           if git diff --cached --quiet; then
             echo "No data changes."
           else

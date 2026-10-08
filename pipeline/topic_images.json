@@ -1,0 +1,84 @@
+{
+  "foods": {
+    "Pizza": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/960px-Pizza-3007395.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: igorovsyannykov, CC0, via Wikimedia Commons"
+    },
+    "Sushi": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/960px-Sushi_platter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: chidorian from Japan, CC BY-SA 2.0, via Wikimedia Commons"
+    },
+    "Hamburger": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/960px-RedDot_Burger.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Hongreddotbrewhouse, CC BY-SA 3.0, via Wikimedia Commons"
+    },
+    "Pasta": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%28Pasta%29_by_David_Adam_Kess_%28pic.2%29.jpg/960px-%28Pasta%29_by_David_Adam_Kess_%28pic.2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: David Adam Kess, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Ramen": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg/960px-Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Quercus acuta, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Taco": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/960px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Larry Miller, CC BY-SA 2.0, via Wikimedia Commons"
+    },
+    "Fried chicken": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried-Chicken-Set.jpg/960px-Fried-Chicken-Set.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Evan-Amos, CC0, via Wikimedia Commons"
+    },
+    "Curry": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Taj_Mahal_-_Lamb_Curry_Madras.jpg/960px-Taj_Mahal_-_Lamb_Curry_Madras.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Francesc Fort, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Dumpling": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/HK_SYP_%E8%A5%BF%E7%87%9F%E7%9B%A4_Sai_Ying_Pun_Kwan_Yick_Building_%E5%90%8D%E6%98%9F%E6%B5%B7%E9%AE%AE%E9%85%92%E5%AE%B6_Star_Seafood_Restaurant_food_%E5%90%9E%E9%BA%B5_Wonton_dim_sum_October_2020_SS2_01.jpg/960px-HK_SYP_%E8%A5%BF%E7%87%9F%E7%9B%A4_Sai_Ying_Pun_Kwan_Yick_Building_%E5%90%8D%E6%98%9F%E6%B5%B7%E9%AE%AE%E9%85%92%E5%AE%B6_Star_Seafood_Restaurant_food_%E5%90%9E%E9%BA%B5_Wonton_dim_sum_October_2020_SS2_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Honmustak Chooica, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Pho": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Bowl_of_Meatball_pho.jpg/960px-Bowl_of_Meatball_pho.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: SerraKnightz, CC BY 4.0, via Wikimedia Commons"
+    },
+    "Biryani": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/%22Hyderabadi_Dum_Biryani%22.jpg/960px-%22Hyderabadi_Dum_Biryani%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Mahi Tatavarty, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Kebab": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Lula_kebab_2.jpg/960px-Lula_kebab_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Lesya Dolyk, CC BY-SA 2.0, via Wikimedia Commons"
+    },
+    "Paella": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/01_Paella_Valenciana_original.jpg/960px-01_Paella_Valenciana_original.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Jan Harenburg, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Hot pot": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Hot_Pot.jpg/960px-Hot_Pot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Praneeth Thalla, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Pad thai": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Phat_Thai_kung_Chang_Khien_street_stall.jpg/960px-Phat_Thai_kung_Chang_Khien_street_stall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Takeaway, CC BY-SA 3.0, via Wikimedia Commons"
+    },
+    "Burrito": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Burrito.JPG/960px-Burrito.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: samuelfernandezrivera, CC0, via Wikimedia Commons"
+    },
+    "Falafel": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Falafels_2.jpg/960px-Falafels_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Popo le Chien, CC BY-SA 3.0, via Wikimedia Commons"
+    },
+    "Shawarma": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Shawarma_2.jpg/960px-Shawarma_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Vis M, CC BY-SA 4.0, via Wikimedia Commons"
+    },
+    "Fried rice": {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Koh_Mak%2C_Thailand%2C_Fried_rice_with_seafood%2C_Thai_fried_rice.jpg/960px-Koh_Mak%2C_Thailand%2C_Fried_rice_with_seafood%2C_Thai_fried_rice.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "credit": "Photo: Vyacheslav Argenberg, CC BY 4.0, via Wikimedia Commons"
+    },
+    "Kimchi": {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Various_kimchi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "credit": "Photo: 국립국어원, CC BY-SA 2.0 kr, via Wikimedia Commons"
+    }
+  }
+}
