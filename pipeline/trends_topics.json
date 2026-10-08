@@ -1,0 +1,166 @@
+{
+  "foods": [
+    {
+      "name": "Pizza",
+      "mid": "/m/0663v"
+    },
+    {
+      "name": "Sushi",
+      "mid": "/m/07030"
+    },
+    {
+      "name": "Hamburger",
+      "mid": "/m/0cdn1"
+    },
+    {
+      "name": "Pasta",
+      "mid": "/m/05z55"
+    },
+    {
+      "name": "Ramen",
+      "mid": "/m/09gms"
+    },
+    {
+      "name": "Taco",
+      "mid": "/m/07crc"
+    },
+    {
+      "name": "Fried chicken",
+      "mid": "/g/1hb_fkqr4"
+    },
+    {
+      "name": "Curry",
+      "mid": "/m/0hr1s_w"
+    },
+    {
+      "name": "Dumpling",
+      "mid": "/m/02cv5l"
+    },
+    {
+      "name": "Pho",
+      "mid": "/m/02y17j"
+    },
+    {
+      "name": "Biryani",
+      "mid": "/m/03_hl0"
+    },
+    {
+      "name": "Kebab",
+      "mid": "/m/022n8y"
+    },
+    {
+      "name": "Paella",
+      "mid": "/m/0ct59"
+    },
+    {
+      "name": "Hot pot",
+      "mid": "/m/04y0_x"
+    },
+    {
+      "name": "Pad thai",
+      "mid": "/m/0238jq"
+    },
+    {
+      "name": "Burrito",
+      "mid": "/m/01j3zr"
+    },
+    {
+      "name": "Falafel",
+      "mid": "/m/015w3y"
+    },
+    {
+      "name": "Shawarma",
+      "mid": "/m/02bbz9"
+    },
+    {
+      "name": "Fried rice",
+      "mid": "/m/02jwtj"
+    },
+    {
+      "name": "Kimchi",
+      "mid": "/m/018dz_"
+    }
+  ],
+  "games": [
+    {
+      "name": "Minecraft",
+      "mid": "/m/09v6kpg"
+    },
+    {
+      "name": "Fortnite",
+      "mid": "/m/0k9bc90"
+    },
+    {
+      "name": "Roblox",
+      "mid": "/m/026bs1g"
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "mid": "/m/0hgnzjh"
+    },
+    {
+      "name": "League of Legends",
+      "mid": "/m/04n3w2r"
+    },
+    {
+      "name": "Valorant",
+      "mid": "/g/11j8wvrz8z"
+    },
+    {
+      "name": "Counter-Strike 2",
+      "mid": "/g/11tx9lh0mg"
+    },
+    {
+      "name": "PUBG: Battlegrounds",
+      "mid": "/g/11dxbkyrq3"
+    },
+    {
+      "name": "Free Fire",
+      "mid": "/g/11hd5fc5tr"
+    },
+    {
+      "name": "Mobile Legends: Bang Bang",
+      "mid": "/g/11g6wvnkkx"
+    },
+    {
+      "name": "Genshin Impact",
+      "mid": "/g/11hznck6gj"
+    },
+    {
+      "name": "Call of Duty: Warzone",
+      "mid": "/g/11fs_hs9dd"
+    },
+    {
+      "name": "EA Sports FC",
+      "mid": "/g/11v5ssmgpd"
+    },
+    {
+      "name": "Pokémon GO",
+      "mid": "/g/11bw4tm1l9"
+    },
+    {
+      "name": "Clash of Clans",
+      "mid": "/m/0vpk6by"
+    },
+    {
+      "name": "Brawl Stars",
+      "mid": "/g/11d_2386_9"
+    },
+    {
+      "name": "Apex Legends",
+      "mid": "/g/11xzm2n3gq"
+    },
+    {
+      "name": "Dota 2",
+      "mid": "/m/0dlkwn1"
+    },
+    {
+      "name": "Honor of Kings",
+      "mid": "/g/11c1lvdw8d"
+    },
+    {
+      "name": "Candy Crush Saga",
+      "mid": "/m/0rytj3p"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+# Refreshes the chart data on a schedule, commits it, and deploys the site to GitHub Pages.
+#   Daily:        Apple Music (its charts change every day)
+#   Wednesdays:   Netflix Top 10 (published on Tuesdays) and Google Trends
+#   On push:      just rebuild and deploy
+#   Manual run:   refresh everything, then deploy
+name: Refresh data and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 5 * * *" # daily
+    - cron: "0 6 * * 3" # weekly, Wednesday
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-and-deploy
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      WEEKLY: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 6 * * 3' }}
+      DAILY: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 5 * * *' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r pipeline/requirements.txt
+
+      - name: Apple Music
+        if: env.DAILY == 'true'
+        run: python pipeline/apple_music.py
+
+      - name: Netflix Top 10
+        if: env.WEEKLY == 'true'
+        run: python pipeline/netflix.py
+
+      # Google often rate-limits cloud IPs. A failure keeps last week's files.
+      - name: Google Trends
+        if: env.WEEKLY == 'true'
+        continue-on-error: true
+        run: python pipeline/trends.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Refresh chart data ($(date -u +%Y-%m-%d))"
+            git push
+          fi
+
+  deploy:
+    needs: refresh
+    # Runs after a refresh, or on its own for pushes (when refresh is skipped).
+    if: always() && needs.refresh.result != 'failure' && needs.refresh.result != 'cancelled'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main # include the data commit the refresh job just pushed
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          # Set these as repository variables once AdSense approves the site.
+          VITE_ADSENSE_CLIENT: ${{ vars.VITE_ADSENSE_CLIENT }}
+          VITE_ADSENSE_SLOT: ${{ vars.VITE_ADSENSE_SLOT }}
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
