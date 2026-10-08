@@ -80,5 +80,71 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Various_kimchi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "credit": "Photo: 국립국어원, CC BY-SA 2.0 kr, via Wikimedia Commons"
     }
+  },
+  "games": {
+    "Minecraft": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3b/b7/24/3bb724be-0244-933a-af48-ad2195689877/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Fortnite": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/86/93/6d8693b7-1679-8e21-7e38-cf8505ad2f5d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Roblox": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/96/a9/a5/96a9a586-952f-c5b2-4898-085555d49d52/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Grand Theft Auto V": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/3240220/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "Counter-Strike 2": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "PUBG: Battlegrounds": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "Genshin Impact": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/e2/13/5ce21317-a08a-24ac-cc5f-2b25a4d71fa6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Call of Duty: Warzone": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "EA Sports FC": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/4080220/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "Pokémon GO": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6f/ba/4f/6fba4fa7-a958-f96e-6761-7d848fd21600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Clash of Clans": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/b9/3a/bab93a90-921d-2caf-32a6-cde63f6006d4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Brawl Stars": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/98/dd/2798dd4e-f772-d93b-0a82-588d3fb55302/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Apex Legends": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "Dota 2": {
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
+      "credit": "Image: Steam store"
+    },
+    "Honor of Kings": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/a1/4f/baa14fb9-493b-d323-99f3-82b9f5ac75c0/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    },
+    "Candy Crush Saga": {
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/83/04/728304ea-32e2-1979-e845-e5f25dd731f6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "credit": "Image: App Store"
+    }
   }
 }

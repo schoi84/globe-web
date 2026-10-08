@@ -5,8 +5,10 @@ Commons (free licenses). Images uploaded to English Wikipedia itself are often
 non-free (posters, cover art, logos) and are skipped. Each image keeps an
 attribution line, which the site shows under the picture.
 
-Games get trailer thumbnails from youtube.py instead: their Wikipedia images are
-almost always non-free cover art.
+Games: official store art, used only when a game has no official trailer (see
+youtube.py). Steam's wide header image for PC games, else the App Store icon for
+mobile games; no match in either store means no image. Wikipedia game images are
+almost always non-free cover art, so they're never used.
 
 Already-found images are kept; delete an entry from topic_images.json to redo it.
 
@@ -28,6 +30,19 @@ from common import NotFound, http_get
 TOPICS = json.loads(Path(__file__).with_name("trends_topics.json").read_text(encoding="utf-8"))
 OUT = Path(__file__).with_name("topic_images.json")
 WIKI_CATEGORIES = ["foods"]
+STORE_CATEGORIES = ["games"]
+STEAM_SEARCH_URL = "https://store.steampowered.com/api/storesearch/?cc=us&l=en&term={term}"
+STEAM_HEADER_URL = "https://cdn.cloudflare.steamstatic.com/steam/apps/{appid}/header.jpg"
+APPSTORE_SEARCH_URL = "https://itunes.apple.com/search?entity=software&country=us&limit=10&term={term}"
+# Store listing names that differ from the topic name. Only exact matches are
+# used otherwise: loose matching picks up manuals, companion apps and spin-offs
+# ("League of Legends: Wild Rift" is a different game, so LoL gets no image).
+STORE_NAME = {
+    "Grand Theft Auto V": "Grand Theft Auto V Enhanced",
+    "EA Sports FC": "EA SPORTS FC 27",
+    "Minecraft": "Minecraft: Play with Friends!",
+    "Genshin Impact": "Genshin Impact 6th Anniversary",
+}
 # Topic name -> Wikipedia article title, where they differ.
 ARTICLE = {"Hot pot": "Hot pot", "Pad thai": "Pad thai"}
 WIDTH = 960
@@ -72,9 +87,39 @@ def image_info(file: str) -> dict | None:
     }
 
 
+def _norm(name: str) -> str:
+    """'Call of Duty®: Warzone™' -> 'call of duty: warzone'."""
+    return re.sub(r"\s+", " ", re.sub(r"[®™©]", "", name)).strip().casefold()
+
+
+def store_image(name: str) -> dict | None:
+    want = _norm(STORE_NAME.get(name, name))
+    term = urllib.parse.quote(name)
+    for item in json.loads(http_get(STEAM_SEARCH_URL.format(term=term))).get("items", []):
+        if _norm(item.get("name", "")) == want:
+            return {"image": STEAM_HEADER_URL.format(appid=item["id"]), "credit": "Image: Steam store"}
+    for app in json.loads(http_get(APPSTORE_SEARCH_URL.format(term=term))).get("results", []):
+        if _norm(app.get("trackName", "")) == want and app.get("artworkUrl512"):
+            return {"image": app["artworkUrl512"], "credit": "Image: App Store"}
+    return None
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     out = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
+    for category in STORE_CATEGORIES:
+        found = out.setdefault(category, {})
+        for topic in TOPICS[category]:
+            name = topic["name"]
+            if name in found:
+                continue
+            pic = store_image(name)
+            if pic:
+                found[name] = pic
+            print(f"{category:6} {name:28} {pic['credit'] if pic else '(no store image)'}")
+            time.sleep(1)
+        OUT.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     for category in WIKI_CATEGORIES:
         found = out.setdefault(category, {})
         for topic in TOPICS[category]:

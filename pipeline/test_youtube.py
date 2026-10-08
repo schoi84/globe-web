@@ -1,6 +1,6 @@
 import unittest
 
-from youtube import score
+from youtube import official_game_channel, score
 
 
 def item(title, channel):
@@ -21,6 +21,18 @@ class ScoreTest(unittest.TestCase):
         own = item("Clash of Clans: New Update Trailer", "Clash of Clans")
         fan = item("Clash of Clans official game trailer", "MAXY")
         self.assertGreater(score(own, "games", "Clash of Clans"), score(fan, "games", "Clash of Clans"))
+
+
+class OfficialGameChannelTest(unittest.TestCase):
+    def test_own_and_publisher_channels_count(self):
+        self.assertTrue(official_game_channel("Brawl Stars", "Brawl Stars"))
+        self.assertTrue(official_game_channel("Rockstar Games", "Grand Theft Auto V"))
+        self.assertTrue(official_game_channel("PUBG: BATTLEGROUNDS", "PUBG: Battlegrounds"))
+
+    def test_press_and_fan_channels_do_not(self):
+        self.assertFalse(official_game_channel("IGN", "Genshin Impact"))
+        self.assertFalse(official_game_channel("GameSpot", "Pokémon GO"))
+        self.assertFalse(official_game_channel("MAXY", "Clash of Clans"))
 
 
 if __name__ == "__main__":

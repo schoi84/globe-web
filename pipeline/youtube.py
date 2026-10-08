@@ -38,6 +38,22 @@ QUERY = {
 # Fan edits, concept trailers and commentary are not the official trailer.
 UNOFFICIAL = ("concept", "fan made", "fanmade", "fan-made", "predictor", "reaction", "explained", "review", "parody", "notflix")
 SOURCE = {"name": "YouTube", "url": "https://www.youtube.com", "label": "Trailers"}
+# Games only show a trailer from an official channel: the game's own, or its
+# publisher's. Anything else (IGN, GameSpot, fan uploads) falls back to the
+# store image from topic_images.json, or to no image at all.
+GAME_PUBLISHERS = (
+    # Multi-word or distinctive names only: short words like "king" would match fan channels.
+    "rockstar games", "riot games", "supercell", "activision", "electronic arts", "ea sports",
+    "garena", "moonton", "tencent games", "hoyoverse", "niantic", "the pokémon company",
+    "krafton", "valve", "dota2", "respawn", "mojang", "epic games", "playstation", "xbox", "nintendo",
+)
+TOPIC_IMAGES = Path(__file__).with_name("topic_images.json")
+
+
+def official_game_channel(channel: str, name: str) -> bool:
+    channel = channel.casefold()
+    game = name.casefold().split(":")[0]  # "PUBG: Battlegrounds" -> "pubg"
+    return game in channel or any(p in channel for p in GAME_PUBLISHERS)
 
 
 def score(item: dict, category: str, name: str) -> int:
@@ -120,12 +136,24 @@ def main(argv: list[str]) -> int:
             break
     CACHE_FILE.write_text(json.dumps(cache, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
+    store_images = json.loads(TOPIC_IMAGES.read_text(encoding="utf-8")).get("games", {}) if TOPIC_IMAGES.exists() else {}
     for category, body in bodies.items():
         found = 0
         for by_country in body["data"].values():
             for entries in by_country.values():
                 for e in entries:
                     video = cache.get(category, {}).get(e["name"])
+                    if category == "games":
+                        # Official trailer, else the store image, else nothing.
+                        for k in ("video", "image", "credit"):
+                            e.pop(k, None)
+                        if video and official_game_channel(video["channel"], e["name"]):
+                            e["video"] = video["id"]
+                            e["credit"] = f"Trailer: {video['channel']} on YouTube"
+                            found += 1
+                        elif e["name"] in store_images:
+                            e.update(store_images[e["name"]])
+                        continue
                     if video:
                         e["video"] = video["id"]
                         e["credit"] = f"Trailer: {video['channel']} on YouTube"
