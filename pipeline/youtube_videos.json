@@ -8,6 +8,10 @@
    "channel": "GameSpot",
    "id": "eVR9qlzboxY"
   },
+  "Candy Crush Saga": {
+   "channel": "Candy Crush Saga Official",
+   "id": "gJjCGmMkAIw"
+  },
   "Clash of Clans": {
    "channel": "Clash of clans - Godson",
    "id": "6BsTLlR40kM"
@@ -39,6 +43,10 @@
   "Grand Theft Auto V": {
    "channel": "Rockstar Games",
    "id": "QkkoHAzjnUs"
+  },
+  "Honor of Kings": {
+   "channel": " Honor of Kings",
+   "id": "1uRhM96nDYI"
   },
   "League of Legends": {
    "channel": "League of Legends",
@@ -78,6 +86,14 @@
    "channel": "Warner Bros.",
    "id": "wJO_vIDZn-I"
   },
+  "Alpha": {
+   "channel": "Netflix India",
+   "id": "YP1uSAggr6Y"
+  },
+  "Anora": {
+   "channel": "MoviesCode Trailers",
+   "id": "aKPZbftV-lM"
+  },
   "Apex": {
    "channel": "Netflix",
    "id": "kgv8jf_8dm0"
@@ -94,6 +110,22 @@
    "channel": "Warner Bros.",
    "id": "X0tOpBuYasI"
   },
+  "CHIPS": {
+   "channel": "Netflix",
+   "id": "9aGeKSSyuhk"
+  },
+  "Caramelo": {
+   "channel": "Netflix",
+   "id": "epiLkoJ4dAk"
+  },
+  "Clash of the Titans": {
+   "channel": "Legendary",
+   "id": "z7cEL6n24d4"
+  },
+  "Crazy Rich Asians": {
+   "channel": "Netflix",
+   "id": "oDBUdMDfq30"
+  },
   "Crazy Rich, Incredibly Broke": {
    "channel": "Netflix",
    "id": "oDBUdMDfq30"
@@ -106,17 +138,61 @@
    "channel": "Illumination",
    "id": "qQlr9-rF32A"
   },
+  "Dhamaal 4": {
+   "channel": "Netflix India",
+   "id": "VrYNsZVhPo4"
+  },
   "Dhurandhar": {
    "channel": "JioStudios",
    "id": "rV6kEsAyrdY"
+  },
+  "Dhurandhar The Revenge (Raw & Undekha)": {
+   "channel": "Netflix India",
+   "id": "o--C7AH5SuI"
   },
   "Doing Life": {
    "channel": "Netflix",
    "id": "zrOtmDQawas"
   },
+  "Dr. Seuss' The Grinch": {
+   "channel": "Illumination",
+   "id": "vjnqABgxfO0"
+  },
+  "Facing El Chapo": {
+   "channel": "The Pester Files",
+   "id": "Rk0efhpa-5Y"
+  },
+  "Frankenstein": {
+   "channel": "Netflix",
+   "id": "8aulMPhE12g"
+  },
   "Gandhari": {
    "channel": "Netflix India",
    "id": "Cq58YGCO_2c"
+  },
+  "Go Team!": {
+   "channel": "Netflix",
+   "id": "xppbyXSxPlo"
+  },
+  "Hanging Up": {
+   "channel": "Rotten Tomatoes Classic Trailers",
+   "id": "w-5Cbu7QLDI"
+  },
+  "Haq": {
+   "channel": "Netflix India",
+   "id": "-x-e2evh3-c"
+  },
+  "Hercules": {
+   "channel": "Klokline Cinema",
+   "id": "vlblxDGoGwo"
+  },
+  "How to Lose a Guy in 10 Days": {
+   "channel": "Still Watching Netflix",
+   "id": "916IGrSU2U0"
+  },
+  "Hungry": {
+   "channel": "Netflix",
+   "id": "h61PbLOmyY0"
   },
   "Irumudi": {
    "channel": "Netflix India",
@@ -126,17 +202,85 @@
    "channel": "Netflix",
    "id": "AzCAwdp1uIQ"
   },
+  "Kraven the Hunter": {
+   "channel": "Sony Pictures Entertainment",
+   "id": "rze8QYwWGMs"
+  },
   "Kung Fu Hustle": {
    "channel": "Piece of the Action",
    "id": "FtE9-o6dBEI"
+  },
+  "Lust Stories 3": {
+   "channel": "Netflix India",
+   "id": "PhNJ34l5NFo"
+  },
+  "M3GAN 2.0": {
+   "channel": "Universal Pictures",
+   "id": "IYLHdEzsk1s"
+  },
+  "Mickey 17": {
+   "channel": "Warner Bros.",
+   "id": "osYpGSz_0i4"
+  },
+  "Modha Rathri": {
+   "channel": "Netflix India",
+   "id": "UrWrvwIRnqk"
+  },
+  "Monster-in-Law": {
+   "channel": "Netflix",
+   "id": "gYTzF1vna40"
+  },
+  "Novocaine": {
+   "channel": "Movies Kingdom",
+   "id": "W6AJPw-o4i8"
+  },
+  "Ocean's 8": {
+   "channel": "Warner Bros.",
+   "id": "MFWF9dU5Zc0"
+  },
+  "Office Romance": {
+   "channel": "Netflix",
+   "id": "11gcNa-TBRA"
+  },
+  "Riot": {
+   "channel": "Netflix",
+   "id": "Tm5uUzbUwR4"
+  },
+  "Schumacher ’94 — The Birth of a Legend": {
+   "channel": "Netflix",
+   "id": "7fDrlNje1iU"
+  },
+  "Second Chances": {
+   "channel": "Netflix",
+   "id": "TgnxwkUbI_g"
   },
   "Shrek": {
    "channel": "Rotten Tomatoes Classic Trailers",
    "id": "CwXOrWvPBPk"
   },
+  "Sonic the Hedgehog 3": {
+   "channel": "Paramount Pictures",
+   "id": "qSu6i2iFMO0"
+  },
+  "Superman": {
+   "channel": "DC",
+   "id": "Ox8ZLF6cGM0"
+  },
   "Swapped": {
    "channel": "Netflix",
    "id": "glgmAwRDP8s"
+  },
+  "Ted": {
+   "channel": "Netflix",
+   "id": "B3tR6qQjbgI"
+  },
+  "Tere Ishk Mein": {
+   "channel": "Netflix India",
+   "id": "anOOdXmbBr0"
+  },
+  "The Breadwinner": {
+   "channel": "Sony Pictures Entertainment",
+   "id": "19PLc6hpTvA"
   },
   "The Equalizer 3": {
    "channel": "Sony Pictures Entertainment",
@@ -146,6 +290,10 @@
    "channel": "Netflix",
    "id": "SYF0MxHVAR0"
   },
+  "The Judge": {
+   "channel": "Netflix",
+   "id": "ziIz59enN1c"
+  },
   "The Little Things": {
    "channel": "Warner Bros.",
    "id": "1HZAnkxdYuA"
@@ -154,9 +302,25 @@
    "channel": "Warner Bros.",
    "id": "XJ0uv-phsDk"
   },
+  "The Mummy Returns": {
+   "channel": "TrailersPlaygroundHD",
+   "id": "OTEDd9RHgRI"
+  },
+  "The Rip": {
+   "channel": "Netflix Romania",
+   "id": "HpTSfMEd52M"
+  },
   "The Secret Woman": {
    "channel": "Netflix",
    "id": "FldeGkt4e4k"
+  },
+  "The Silence of the Lambs": {
+   "channel": "Netflix",
+   "id": "Y-ufZuqTd5c"
+  },
+  "The SpongeBob Movie: Search for Squarepants": {
+   "channel": "Paramount Pictures",
+   "id": "XdPt8QWTypI"
   },
   "The Substance": {
    "channel": "MUBI",
@@ -174,9 +338,29 @@
    "channel": "World Dream Production",
    "id": "4HXJFE-mpkU"
   },
+  "Thrash": {
+   "channel": "Netflix",
+   "id": "hzyOsNyDkbM"
+  },
+  "Turning Point: Generation 9/11": {
+   "channel": "Netflix",
+   "id": "1epklvnxATo"
+  },
   "UNABOMBER": {
    "channel": "Netflix",
    "id": "B3tR6qQjbgI"
+  },
+  "Unhappily Ever After": {
+   "channel": "Phoenix Media Distribution",
+   "id": "F7YdtowVLtk"
+  },
+  "Vanishing Point": {
+   "channel": "ONE Media +",
+   "id": "OoJcA5K-rdo"
+  },
+  "Vishwanath & Sons": {
+   "channel": "Netflix India",
+   "id": "gpk4bwqg6y4"
   },
   "Voicemails for Isabelle": {
    "channel": "Netflix",
@@ -190,16 +374,32 @@
    "channel": "Netflix",
    "id": "AFuE1LRxm80"
   },
+  "We're the Millers": {
+   "channel": "Netflix Philippines",
+   "id": "umMNlW24DaE"
+  },
   "What a Father!": {
    "channel": "Film4",
    "id": "mo5WG_ZtbRE"
   },
+  "White Chicks": {
+   "channel": "Rotten Tomatoes Classic Trailers",
+   "id": "aeVkbNka9HM"
+  },
   "Why Did I Get Married Again?": {
    "channel": "Netflix",
    "id": "VylsOZBYxQA"
+  },
+  "Wolf Man": {
+   "channel": "Universal Pictures",
+   "id": "kAw4PH2IQgo"
   }
  },
  "tv": {
+  "A Different World": {
+   "channel": "Netflix",
+   "id": "W8jMEXwErvk"
+  },
   "Agent Kim Reactivated": {
    "channel": "Netflix K-Content",
    "id": "k5IDEniQNEk"
@@ -211,6 +411,14 @@
   "Berlin and the Lady with an Ermine": {
    "channel": "Netflix",
    "id": "Ltrc8z4AXKo"
+  },
+  "Blood Legacy": {
+   "channel": "AfricaOnNetflix",
+   "id": "0-TBHiOReng"
+  },
+  "Blood Sacrifice": {
+   "channel": "Netflix",
+   "id": "u5qW1gMMSVI"
   },
   "Bridgerton": {
    "channel": "Netflix",
@@ -224,13 +432,41 @@
    "channel": "Netflix",
    "id": "Xs5qsfqp-tA"
   },
+  "Danny Go!": {
+   "channel": "Netflix Jr.",
+   "id": "Dya47URG_64"
+  },
+  "Death of the Pastor's Wife": {
+   "channel": "Netflix",
+   "id": "8wgC1XVGolE"
+  },
+  "Dynamite Kiss": {
+   "channel": "Netflix K-Content",
+   "id": "fAnU6CkpF_Y"
+  },
   "East of Eden": {
    "channel": "Netflix",
    "id": "M9NWvGZViCg"
   },
+  "Emily in Paris": {
+   "channel": "Netflix",
+   "id": "Xl3HY9yMEBI"
+  },
+  "Fauda": {
+   "channel": "Netflix",
+   "id": "k-tILBxRiQ4"
+  },
   "Four Hands, Two Sonatas": {
    "channel": "Netflix K-Content",
    "id": "KapADxhCvvM"
+  },
+  "Gabby's Dollhouse": {
+   "channel": "Netflix Games",
+   "id": "V3HJ7O8HAok"
+  },
+  "Ghosts": {
+   "channel": "Netflix",
+   "id": "uteOTMS9CAY"
   },
   "HIS & HERS": {
    "channel": "Netflix",
@@ -244,9 +480,41 @@
    "channel": "AfricaOnNetflix",
    "id": "t73OrcOKCr0"
   },
+  "India’s Got Latent": {
+   "channel": "Netflix India",
+   "id": "YeEBWogCL4c"
+  },
+  "Irreplaceable": {
+   "channel": "Netflix",
+   "id": "LKnQVCCX8vU"
+  },
+  "Jujutsu Kaisen": {
+   "channel": "Crunchyroll",
+   "id": "pkKu9hLT-t8"
+  },
+  "Kian’s Bizarre B&B": {
+   "channel": "Netflix K-Content",
+   "id": "qcgMhDIFOc8"
+  },
   "LEGO ONE PIECE": {
    "channel": "Netflix",
    "id": "5Z8oBbmkgXo"
+  },
+  "Leaving": {
+   "channel": "Netflix",
+   "id": "ziIz59enN1c"
+  },
+  "Man Vs Baby": {
+   "channel": "Netflix",
+   "id": "zHhR3daI3bY"
+  },
+  "Man on Fire": {
+   "channel": "Netflix",
+   "id": "YqpIKFUrLrk"
+  },
+  "Medusa": {
+   "channel": "Netflix Latinoamérica",
+   "id": "GKWBZTxR0ds"
   },
   "Minerva Academy": {
    "channel": "MVSRS",
@@ -256,25 +524,109 @@
    "channel": "Netflix",
    "id": "gYTzF1vna40"
   },
+  "Ms. Rachel": {
+   "channel": "Netflix Jr.",
+   "id": "jJmIkmXvQ6I"
+  },
+  "Musafir Cafe": {
+   "channel": "Netflix India",
+   "id": "CY603P-PeQQ"
+  },
+  "My Name Is Farah": {
+   "channel": "Turkish Series News",
+   "id": "5cnIptfJjxs"
+  },
+  "My Royal Nemesis": {
+   "channel": "Netflix K-Content",
+   "id": "efj9rk9mCeo"
+  },
+  "Nemesis": {
+   "channel": "Netflix",
+   "id": "M9nc3simqAE"
+  },
   "Not a Stranger": {
    "channel": "Netflix",
    "id": "ODIk9yGmpQI"
+  },
+  "Oasis": {
+   "channel": "Netflix Brasil",
+   "id": "gfeuYOYYLnQ"
+  },
+  "Outside": {
+   "channel": "Netflix Malaysia",
+   "id": "lxzwfbD26Ec"
+  },
+  "Papa Yaar by Zakir Khan": {
+   "channel": "Netflix India",
+   "id": "WYhyxUbOLK8"
+  },
+  "Phantom Lawyer": {
+   "channel": "TontonMY Official",
+   "id": "ZjFLDKj2-Jg"
+  },
+  "Physical 100: Italy": {
+   "channel": "Netflix",
+   "id": "e3n_g-wy4gQ"
+  },
+  "Physical 100: Mexico": {
+   "channel": "Netflix",
+   "id": "mu-Hqz_6E_0"
   },
   "Plastic Beauty": {
    "channel": "Netflix Philippines",
    "id": "rDEnONgb7CM"
   },
+  "Pursuit of Jade": {
+   "channel": "Netflix Thailand",
+   "id": "TcKP5a6pNdg"
+  },
+  "Raw": {
+   "channel": "Netflix",
+   "id": "aFobhctIOh4"
+  },
+  "STEEL BALL RUN JoJo’s Bizarre Adventure": {
+   "channel": "Netflix",
+   "id": "30RsSGjVB5c"
+  },
+  "Salish & Jordan Matter": {
+   "channel": "Netflix",
+   "id": "ypPWAObvh1k"
+  },
   "Shaque: Trust No One": {
    "channel": "Netflix India",
    "id": "WPPcfRd-JzE"
+  },
+  "Sold Out on You": {
+   "channel": "Netflix K-Content",
+   "id": "LhfSS7-RhVE"
   },
   "Stranger Things": {
    "channel": "Netflix",
    "id": "b9EkMc79ZSU"
   },
+  "Taskaree: The Smuggler's Web": {
+   "channel": "Netflix India",
+   "id": "gKhfbEpM45E"
+  },
   "Teach You a Lesson": {
    "channel": "Netflix K-Content",
    "id": "LdezlX84py0"
+  },
+  "The Arena": {
+   "channel": "Netflix",
+   "id": "U57CNxSgoss"
+  },
+  "The Beast in Me": {
+   "channel": "Netflix",
+   "id": "8iNHGKcP0cM"
+  },
+  "The Early Spring": {
+   "channel": "Netflix Thailand",
+   "id": "KRzpq4_TboQ"
+  },
+  "The Final Problem": {
+   "channel": "Netflix",
+   "id": "SdvzhCL7vIA"
   },
   "The Gentlemen": {
    "channel": "Netflix",
@@ -283,6 +635,14 @@
   "The Great Indian Kapil Show": {
    "channel": "Netflix India",
    "id": "bftjfqS3v6k"
+  },
+  "The Mentalist": {
+   "channel": "Netflix",
+   "id": "eHsWYmnXk1o"
+  },
+  "The Perfect Lie": {
+   "channel": "Netflix",
+   "id": "9aGeKSSyuhk"
   },
   "The Polygamist": {
    "channel": "AfricaOnNetflix",
