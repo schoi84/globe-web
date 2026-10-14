@@ -1,0 +1,22 @@
+# Keeps a free-plan Supabase project from pausing (it pauses after ~7 days idle)
+# by reading one row from public.keepalive every 3 days.
+# Secrets: SUPABASE_URL (base URL, no /rest/v1) and SUPABASE_ANON_KEY (publishable key).
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: "0 3 */3 * *" # every 3 days, 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query the keepalive table
+        run: |
+          curl -sf "${SUPABASE_URL%/}/rest/v1/keepalive?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
